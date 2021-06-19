@@ -1,0 +1,126 @@
+# Simple package
+
+name: fvtt-espanso
+parent: default
+
+matches:
+  - trigger: "@discord"
+    replace: "https://discord.gg/foundryvtt"
+
+  - trigger: "@missed"
+    replace: |
+             I'm sorry that you missed out on using the available discount as part of your purchase, but I'm afraid it is not feasible for us to issue partial refunds in this way. As each refund costs us money to process, refunding and re-purchasing ends up being costly both in terms of our support time and sale value.
+ 
+             We sympathize with the frustration of missing a sale window, and do our best to announce sales ahead of when they arrive, but we also realize that it's impossible to reach every potential customer, no matter how much we wish that we could.
+ 
+             I hope you understand and that you have a fantastic experience with Foundry Virtual Tabletop which leaves you feeling that it was worth the price at which you purchased it. Please let us know if you get stuck with anything or need help otherwise.$|$
+
+  - trigger: "@approval"
+    replace: |
+             Thanks for creating this module to share with the Foundry community! I have approved your submission and given you the Developer role on the website where you can now access an admin panel at https://foundryvtt.com/admin.
+
+             Your package can be managed here: {{clipboard}}
+             
+             From there you can update your package or post new versions. Please be thorough and fill out the form as carefully as you can, and remember to update it with a new version when you release one. This will make the new version available for users to install inside the Foundry application and will post a "release announcement" into the Discord channel.
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+
+  - trigger: "@demo"
+    replace: |
+             There are 3 demo servers available that you can play around with:
+ 
+             Active Demo Servers
+             Player Demo: https://demo.foundryvtt.com/ - player password is foundry
+             GM Demo (dnd5e): https://dnd5e.doomnaught.com/ - GM password is foundry
+             GM Demo (worldbuilding): https://sws.doomnaught.com/ - GM password is foundry
+
+  - trigger: "@refund"
+    replace: |
+             Refunds are offered in cases where the customer is unable to use the product due to features or attributes of the product experience which were not clearly explained in the product documentation. If you can write me a brief email to explain why Foundry VTT is not working for you I can either help with your issue or process a refund.
+
+  - trigger: "@refundsale"
+    replace: |
+             I’m sorry, however changes in pricing are not a condition for which we support refund requests. This would make it unfeasible for us to run sales if we needed to process refunds for customers who purchased before or after the period of the sale. For more information you can read our refund policy here: https://foundryvtt.com/article/faq/#refunds
+ 
+             At a personal level, I am sympathetic and I wish we could have communicated the upcoming sale in a way that helped customers anticipate it was about to happen - but from the business side of things each purchase and each refund costs us a bit of money to process, so re-funding and re-purchasing ends up being costly both in terms of our support time as well as financially.
+ 
+             I hope you understand and I hope you have a fantastic experience with Foundry Virtual Tabletop that leaves you feeling that it was worth the price at which you purchased it. Please let us know if you get stuck with anything or need help otherwise.
+
+  - trigger: "@license"
+    replace: |
+             You can absolutely install and use the software on multiple machines. The terms of the license request that you would only be hosting one active game session per license, but it's fine to have the software in both places for your own use!
+
+             For more information about acceptable uses of the Foundry Virtual Tabletop license, please see our license agreement here: https://foundryvtt.com/article/license
+             or our FAQ section about licensing here: https://foundryvtt.com/article/faq/#license-usage
+
+  - trigger: "@paypal"
+    replace: |
+             Our purchasing system now supports a number of alternative payment options including SEPA Direct Debit, AliPay, Apple Pay, and Google Pay. 
+ 
+             Unfortunately, Paypal is not supported by Stripe and at this time we do not plan to implement additional payment platforms beyond Stripe. We hope to add additional payment methods in the future as they become available.
+
+  - trigger: "@regional"
+    replace: |
+             Thanks for sharing your question and your concern. I agree that exchange rates can make the price difficult for different countries. I don't have a good solution for this right now, I'm afraid, because verifying the region of a customer is something that is difficult to do securely and accurately. We may try and implement regional prices in the future, but it's quite difficult to do properly in a secure way so, at least for the time being, I'm afraid we must charge the same price globally for the software.
+
+  - trigger: "@reCaptcha"
+    replace: |
+             The site is using the new reCaptchaV3 which does not involve a challenge activity but instead passively uses a machine learning algorithm which is designed to identify fraudulent or bot traffic. If you're having trouble with the captcha, try temporarily disabling any ad blockers or browser extensions which automate behaviors (or try a different browser) and let me know if it works.
+
+  - trigger: "@EULA"
+    replace: |
+             Sorry to hear you're running into this issue. The most likely cause is that the name of your computer contains an accented character which can trigger some license signing issues in version 0.7.x. This problem has been corrected in the current latest stable (version 0.8.x).
+ 
+             For now, the work around is to rename your PC by following these steps: https://support.microsoft.com/en-us/windows/rename-your-windows-10-pc-750bc75d-8ff8-e99a-b9dc-04dff566ae74
+ 
+             Once the name no longer contains invalid text characters, you can delete your license.json file from %localappdata%\FoundryVTT\Config and you'll be able to re-enter your license key and use the software as expected.
+ 
+             I hope this helps and I apologize for the inconvenience of this step in order to use Foundry VTT.
+
+  - trigger: "@SEPA"
+    replace: |
+             Sorry for the delay!
+
+             If your license was purchased using SEPA Direct Debit, unfortunately it can take up to 7 days to process as your bank must debit your account and then confirm the transaction back to Stripe. 
+
+             You can learn more about the SEPA processing time here: https://foundryvtt.com/article/faq/#sepa
+
+             You will receive an email with your issued license key details as soon as the payment has been processed by your bank and the record of that transaction reported back to Stripe.
+
+             Usually, once the funds are withdrawn from your account the license is issued within 24-48 hours.
+
+             Unfortunately the delays related to issuing licenses in this way are related to the time it takes for banks to relay the payment information to Stripe.
+
+             Thanks for your understanding and patience!
+
+  - trigger: "@adminkey"
+    replace: |
+             Sorry for your trouble. You can clear the existing admin key by deleting a file from the machine from which you host the Foundry VTT application. The file location is {user-data}/Config/admin.txt where {user-data} is the location where your foundry worlds and files are stored. Delete the admin.txt file from the Config folder within and restart the Foundry VTT application and you can set a new admin key. The default user data paths are listed below.  
+ 
+             Default UserData Locations
+             Windows 10 - %localappdata%\FoundryVTT\
+             macOS - ~/Library/Application Support/FoundryVTT
+             Linux - ~/.local/share/FoundryVTT
+ 
+             If you're on Windows, you can also conveniently navigate to this directory by right clicking on the Foundry application in your taskbar and clicking on “Browse User Data”.
+
+  - trigger: "@oldlicense"
+    replace: |
+             Your Foundry VTT installation is probably using a temporary Patreon access key instead of your permanent license key. Please try following the steps described here https://foundryvtt.com/article/faq/#how-apply-license to apply your purchased license:
+ 
+             If you previously had access to the software through Patreon, but have since purchased a full License, you'll need to delete your existing license file so that the software will prompt you to enter a new license key. You don't need to do this right away, but the Patron access keys will no longer be valid for software updates after the full software release on May 22. 
+ 
+             To delete your existing license file, navigate to your user data directory and delete the file {userData}/Config/license.json. The next time you start Foundry Virtual Tabletop it will prompt you to enter a new license key.
+ 
+             Once you have entered your full license key and accepted the EULA, you should be able to update the software. Please let me know if this does not work!
+
+  - trigger: "@transfer"
+    replace: |
+             Absolutely, you can purchase a Foundry Virtual Tabletop license key and then transfer that key as a gift to someone else. What you'll need to do is follow this process:
+ 
+             1. Ask the recipient to register a user account on the Foundry website using our registration form https://foundryvtt.com/auth/register/
+             2. Purchase a license key you wish to transfer (can be done before #1 also).
+             3. Use the self-service license transfer form to gift your purchased key to the recipient: https://foundryvtt.com/purchase/transfer
+ 
+             Let us know if you have trouble with any steps of this process and thank you for considering Foundry Virtual Tabletop as a gift to share with others!
